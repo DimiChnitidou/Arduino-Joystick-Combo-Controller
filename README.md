@@ -53,22 +53,48 @@ This small project combines electronics, programming, and logic design — ideal
 
 ---
 
-🧪 Usage
+## 🧠 How It Works
 
-Open joystick_combos.ino in the Arduino IDE.
+The joystick provides two analog signals:
 
-Select Board → Arduino Uno.
+- **VRx** → for horizontal motion (`A0`)
+- **VRy** → for vertical motion (`A1`)
 
-Upload the sketch.
+The Arduino reads both analog values (0–1023) and calculates their deviation from the center point (~512) to detect the joystick’s direction.  
+A **deadzone** around the center prevents small jitters or noise from triggering unwanted outputs.
 
-Move the joystick:
+Depending on the direction(s), the Arduino activates:
 
-Left → Red LED lights
+- **LEDs** → digital outputs (left/right)
+- **Laser** → digital output (down)
+- **Buzzer** → analog sound via `tone()` (up)
 
-Right → Green LED lights
+---
 
-Up → Buzzer plays tone
+## 🧪 Usage
 
-Down → Laser activates
+1. Open `joystick_combos.ino` in the **Arduino IDE**.  
+2. Select **Board → Arduino Uno**.  
+3. Upload the sketch to your Arduino board.  
+4. Move the joystick in different directions and observe the outputs:
 
-Diagonals trigger combinations (e.g., Up+Left = Buzzer + Red LED)
+- **Left** → 🔴 Red LED lights up  
+- **Right** → 🟢 Green LED lights up  
+- **Up** → 🔊 Buzzer plays tone  
+- **Down** → 🔦 Laser activates  
+- **Diagonals** → combinations (e.g., Up + Left → Buzzer + Red LED)
+
+---
+
+## 🧩 Example Scenarios
+
+| Joystick Direction | Activated Output |
+|--------------------|------------------|
+| Left | 🔴 Red LED |
+| Right | 🟢 Green LED |
+| Up | 🔊 Buzzer |
+| Down | 🔦 Laser |
+| Up + Left | 🔊 Buzzer + 🔴 Red LED |
+| Down + Right | 🔦 Laser + 🟢 Green LED |
+| Up + Right | 🔊 Buzzer + 🟢 Green LED |
+| Down + Left | 🔦 Laser + 🔴 Red LED |
