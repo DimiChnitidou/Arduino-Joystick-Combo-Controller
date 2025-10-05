@@ -50,3 +50,25 @@ This small project combines electronics, programming, and logic design — ideal
 | **Laser GND / Joystick GND / LEDs GND** | `GND` | Common ground |
 
 📝 *If you want to include the joystick button (SW), connect it to any digital pin with a pull-up resistor.*
+
+---
+
+🧪 Usage
+
+Open joystick_combos.ino in the Arduino IDE.
+
+Select Board → Arduino Uno.
+
+Upload the sketch.
+
+Move the joystick:
+
+Left → Red LED lights
+
+Right → Green LED lights
+
+Up → Buzzer plays tone
+
+Down → Laser activates
+
+Diagonals trigger combinations (e.g., Up+Left = Buzzer + Red LED)
